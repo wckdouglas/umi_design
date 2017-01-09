@@ -49,13 +49,12 @@ server <- shinyServer(function(input, output) {
         lambda <- input$seq_depth *1e6/ diversity
         p<-dpois(x, lambda)
         
-        df <- data.frame(x = x, p = p)
         # draw the histogram with the specified number of bins
-        ggplot(data= df, aes(x=x,y=p)) +
+        qplot(x=x,y=p, geom='line') +
             geom_line(color = 'red', size = 2) +
             xlim(0,20) +
-            labs(x = 'How many times would the same barcode appears?',
-                  y = 'Probability')+
+            labs(x = 'How many times would UMI collision occurs?',
+                  y = 'Fraction of UMI')+
             theme(text = element_text(size = 20))
     }) 
 })
