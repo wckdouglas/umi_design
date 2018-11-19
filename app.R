@@ -27,7 +27,7 @@ ui <- shinyUI(fluidPage(
             sliderInput(inputId = "seq_depth",
                     label = "Number of read depth (M):",
                     min = 1,
-                    max = 300,
+                    max = 1000,
                     value = 10),
             numericInput('n', 'Number of different fragments', 1000)
         ),
